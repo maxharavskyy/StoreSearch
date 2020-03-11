@@ -32,7 +32,7 @@
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" barStyle="black" id="XL4-bW-3FW">
                                 <rect key="frame" x="0.0" y="56" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="gqB-Vl-w1S">
                                         <nil key="title"/>
