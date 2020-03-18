@@ -18,6 +18,8 @@
 		66B121F323EB43DF00DCF76D /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B121F223EB43DF00DCF76D /* SearchResultCell.swift */; };
 		66B121F523EC6CD700DCF76D /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66B121F423EC6CD700DCF76D /* NothingFoundCell.xib */; };
 		66C45A3F241915CF006D5ACC /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C45A3E241915CF006D5ACC /* UIImageView+DownloadImage.swift */; };
+		66D246FD241A9BDC00E2F5FC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D246FC241A9BDC00E2F5FC /* DetailViewController.swift */; };
+		66D246FF241AAE2D00E2F5FC /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D246FE241AAE2D00E2F5FC /* DimmingPresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		66B121F223EB43DF00DCF76D /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		66B121F423EC6CD700DCF76D /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		66C45A3E241915CF006D5ACC /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		66D246FC241A9BDC00E2F5FC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		66D246FE241AAE2D00E2F5FC /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +77,11 @@
 				664B64B4240D6A8C00EC90F0 /* LoadingCell.xib */,
 				66B121F423EC6CD700DCF76D /* NothingFoundCell.xib */,
 				66B121F223EB43DF00DCF76D /* SearchResultCell.swift */,
+				66D246FC241A9BDC00E2F5FC /* DetailViewController.swift */,
 				66B121F023EB2A2B00DCF76D /* SearchResultCell.xib */,
 				66B121EE23E9C48B00DCF76D /* SearchResult.swift */,
 				66B121E023E87CA700DCF76D /* Main.storyboard */,
+				66D246FE241AAE2D00E2F5FC /* DimmingPresentationController.swift */,
 				66B121E323E87CA800DCF76D /* Assets.xcassets */,
 				66B121E823E87CA800DCF76D /* Info.plist */,
 			);
@@ -158,9 +164,11 @@
 				66B121DF23E87CA700DCF76D /* SearchViewController.swift in Sources */,
 				66B121DB23E87CA700DCF76D /* AppDelegate.swift in Sources */,
 				66C45A3F241915CF006D5ACC /* UIImageView+DownloadImage.swift in Sources */,
+				66D246FF241AAE2D00E2F5FC /* DimmingPresentationController.swift in Sources */,
 				66B121EF23E9C48B00DCF76D /* SearchResult.swift in Sources */,
 				66B121DD23E87CA700DCF76D /* SceneDelegate.swift in Sources */,
 				66B121F323EB43DF00DCF76D /* SearchResultCell.swift in Sources */,
+				66D246FD241A9BDC00E2F5FC /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
