@@ -32,7 +32,7 @@
                             </searchBar>
                             <navigationBar contentMode="scaleToFill" barStyle="black" id="XL4-bW-3FW">
                                 <rect key="frame" x="0.0" y="56" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="gqB-Vl-w1S">
                                         <nil key="title"/>
@@ -60,6 +60,7 @@
                             <constraint firstItem="oUQ-r4-pWO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Itz-Za-Dii"/>
                             <constraint firstItem="6lK-uG-5Cv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Jpe-r0-tqn"/>
                             <constraint firstItem="oUQ-r4-pWO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XVY-ig-zAn"/>
+                            <constraint firstItem="XL4-bW-3FW" firstAttribute="top" secondItem="oUQ-r4-pWO" secondAttribute="bottom" id="bVr-jc-9rq"/>
                             <constraint firstItem="6lK-uG-5Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pbs-S7-UlC"/>
                             <constraint firstItem="6lK-uG-5Cv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wcs-OX-kJk"/>
                         </constraints>
