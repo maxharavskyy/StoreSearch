@@ -46,8 +46,18 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    enum AnimationStyle {
+        case slide
+        case fade
+    }
+    var dismissStyle = AnimationStyle.fade
+
+    
+    
     // MARK: - Actions
     @IBAction func close() {
+        dismissStyle = .slide
         dismiss(animated: true, completion: nil)
     }
     @IBAction func openInStore() {
@@ -95,16 +105,7 @@ class DetailViewController: UIViewController {
     
     
     
-    // MARK: - Navigation
     
-    /*
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }
 
@@ -120,7 +121,13 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
     
     }
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideOutAnimationController()
+        switch dismissStyle {
+        case .slide:
+            return SlideOutAnimationController()
+        case .fade:
+            return FadeOutAnimationController()
+        }
+        
     }
     
     

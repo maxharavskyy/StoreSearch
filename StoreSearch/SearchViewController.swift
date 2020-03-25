@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
     var hasSearched = false
     var isLoading = false
     var dataTask: URLSessionDataTask?
+    var landscapeVC: LandscapeViewController?
     
     struct  TableView  {
         struct CellIdentifiers {
@@ -38,7 +39,7 @@ class SearchViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        searchBar.becomeFirstResponder()
+//        searchBar.autoresizingMask = [.flexibleTopMargin, .flexibleHeight]
 
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0)
@@ -50,7 +51,23 @@ class SearchViewController: UIViewController {
         
         cellNib = UINib(nibName: TableView.CellIdentifiers.loadingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
-            }
+        tableView.rowHeight = 80
+        searchBar.becomeFirstResponder()
+        
+    }
+    
+    //MARK:- Transition to Landscape
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            showLandscape(with: coordinator)
+        case .regular, .unspecified:
+            hideLandscape(with: coordinator)
+        }
+    }
     
     //MARK:- NAVIGATION    sender to detailViewController
     
@@ -106,7 +123,7 @@ extension SearchViewController: UISearchBarDelegate {
                         return
                     }
                 } else {
-                    print("Failure! \(responce!)")
+                    print("Failure! \( responce!)")
                 }
                 DispatchQueue.main.async {
                     self.hasSearched = false
@@ -164,6 +181,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+    //MARK:- Private Methods
+    
     func iTunesURL(searchText: String, category: Int) -> URL {
       let kind: String
       switch category {
@@ -201,4 +221,37 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         present(alert, animated: true, completion: nil)
     }
     
+    func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        guard landscapeVC == nil else {
+            return
+        }
+        landscapeVC = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController" ) as? LandscapeViewController
+        
+        if let controller = landscapeVC {
+            
+            controller.view.frame = view.bounds
+            controller.view.alpha = 0
+            
+            view.addSubview(controller.view)
+            addChild(controller)
+            coordinator.animate(alongsideTransition: {_ in controller.view.alpha = 1
+                self.searchBar.resignFirstResponder()
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }, completion: {_ in controller.didMove(toParent: self)})
+        }
+    }
+    func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        if let controller = landscapeVC {
+            controller.willMove(toParent: nil)
+            
+            coordinator.animate(alongsideTransition: {_ in controller.view.alpha = 0}, completion: {_ in controller.view.removeFromSuperview()
+                controller.removeFromParent()
+                self.landscapeVC = nil
+            })
+            
+            
+        }
+    }
 }
