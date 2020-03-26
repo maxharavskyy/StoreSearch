@@ -14,7 +14,7 @@ class LandscapeViewController: UIViewController {
     
     var searchResults = [SearchResult]()
     private var firstTime = true
-    
+    private var downloads = [URLSessionTask]()
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -47,6 +47,13 @@ class LandscapeViewController: UIViewController {
             tileButtons(searchResults)
         }
         
+    }
+    
+    deinit {
+        print("deinit \(self)")
+        for task in downloads {
+            task.cancel()
+        }
     }
     
 //MARK:-Actions
@@ -107,9 +114,9 @@ class LandscapeViewController: UIViewController {
         var x = marginX
         for (index, result) in searchResults.enumerated() {
             // Create button
-            let button = UIButton(type: .system)
-            button.backgroundColor = UIColor.white
-            button.setTitle("\(index)", for: .normal)
+            let button = UIButton(type: .custom)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: .normal)
+            downloadImage(for: result, andPlaceOn: button)
             // Set button frame
             button.frame = CGRect(x: x + paddingHorz, y: marginY + CGFloat(row)*itemHeight + paddingVert, width: buttonWidth, height: buttonHeight)
             // Add button
@@ -135,18 +142,37 @@ class LandscapeViewController: UIViewController {
         pageControl.currentPage = 0
     }
 
+
+
+private func downloadImage(for searchResult: SearchResult, andPlaceOn button: UIButton) {
+    if let url = URL(string: searchResult.imageSmall) {
+        let task = URLSession.shared.downloadTask(with: url) {
+            [weak button] url, responce, error in
+            if error == nil, let url = url, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    if let button = button {
+                        button.setImage(image, for: .normal)
+                    }
+                }
+            }
+        }
+        task.resume()
+        downloads.append(task)
+    }
+
+ }
+
+
+
 }
+
+//MARK:-
 extension LandscapeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = scrollView.bounds.size.width
         let page = Int((scrollView.contentOffset.x + width / 2) / width)
         pageControl.currentPage = page
     }
-    
-    
-    
-    
-    
     
 }
 
