@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
-    
+    var landscapeVC: LandscapeViewController?
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         performSearch()
@@ -28,7 +28,6 @@ class SearchViewController: UIViewController {
     var hasSearched = false
     var isLoading = false
     var dataTask: URLSessionDataTask?
-    var landscapeVC: LandscapeViewController?
     
     struct  TableView  {
         struct CellIdentifiers {
@@ -228,6 +227,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         landscapeVC = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController" ) as? LandscapeViewController
         
         if let controller = landscapeVC {
+            controller.searchResults = searchResults
             
             controller.view.frame = view.bounds
             controller.view.alpha = 0

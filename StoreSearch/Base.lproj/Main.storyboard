@@ -55,19 +55,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GkC-4J-0A4"/>
-                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Itz-Za-Dii"/>
-                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Jpe-r0-tqn"/>
-                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="a8k-dU-Ay1"/>
+                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="bottom" secondItem="Qer-cv-c0N" secondAttribute="bottom" id="GkC-4J-0A4"/>
+                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="top" secondItem="Qer-cv-c0N" secondAttribute="top" id="Itz-Za-Dii"/>
+                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="trailing" secondItem="Qer-cv-c0N" secondAttribute="trailing" id="Jpe-r0-tqn"/>
+                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="trailing" secondItem="Qer-cv-c0N" secondAttribute="trailing" id="a8k-dU-Ay1"/>
                             <constraint firstItem="XL4-bW-3FW" firstAttribute="top" secondItem="oUQ-r4-pWO" secondAttribute="bottom" id="bVr-jc-9rq"/>
-                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kS0-KU-RpB"/>
-                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="leading" secondItem="XL4-bW-3FW" secondAttribute="leading" id="lTI-RB-r7u"/>
-                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="onk-rm-KsZ"/>
-                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pbs-S7-UlC"/>
-                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wcs-OX-kJk"/>
-                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x79-T0-wUi"/>
+                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="leading" secondItem="Qer-cv-c0N" secondAttribute="leading" id="onk-rm-KsZ"/>
+                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="leading" secondItem="Qer-cv-c0N" secondAttribute="leading" id="pbs-S7-UlC"/>
+                            <constraint firstItem="6lK-uG-5Cv" firstAttribute="top" secondItem="Qer-cv-c0N" secondAttribute="top" id="wcs-OX-kJk"/>
+                            <constraint firstItem="oUQ-r4-pWO" firstAttribute="top" secondItem="Qer-cv-c0N" secondAttribute="top" id="x79-T0-wUi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="Qer-cv-c0N"/>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="oUQ-r4-pWO" id="oL5-Z4-gpg"/>
@@ -165,9 +163,9 @@
                         <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="X36-cO-BLs" firstAttribute="centerY" secondItem="ugm-tH-eGv" secondAttribute="centerY" id="ZDu-SY-fBZ"/>
-                            <constraint firstItem="X36-cO-BLs" firstAttribute="centerX" secondItem="ugm-tH-eGv" secondAttribute="centerX" id="ZXt-zY-IOG"/>
+                            <constraint firstItem="X36-cO-BLs" firstAttribute="centerX" secondItem="o02-OO-EVW" secondAttribute="centerX" id="ZXt-zY-IOG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="WSG-5R-R26"/>
+                        <viewLayoutGuide key="safeArea" id="o02-OO-EVW"/>
                     </view>
                     <connections>
                         <outlet property="artistNameLabel" destination="TRH-34-AKe" id="kGm-Z2-7Fw"/>
@@ -191,24 +189,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Landscape Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2z-wp-rWq">
-                                <rect key="frame" x="218" y="149.5" width="132" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="me4-nt-6Tq">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="4a5-6T-YNn"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="E6Q-Fi-eF2"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pJM-1P-Ra6" id="rkP-xz-4CR"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="0Do-MN-eN2">
+                                <rect key="frame" x="264" y="280" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="pJM-1P-Ra6" eventType="valueChanged" id="FdJ-69-vZU"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="K2z-wp-rWq" firstAttribute="centerX" secondItem="2Af-SS-cfZ" secondAttribute="centerX" id="BGw-uK-iV2"/>
-                            <constraint firstItem="K2z-wp-rWq" firstAttribute="centerY" secondItem="2Af-SS-cfZ" secondAttribute="centerY" id="UQ5-C1-H5c"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vxA-xS-yGv"/>
+                        <viewLayoutGuide key="safeArea" id="4BM-t0-98T"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="0Do-MN-eN2" id="ou9-Ea-6lu"/>
+                        <outlet property="scrollView" destination="me4-nt-6Tq" id="RjW-Jg-t4A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbx-Qg-S51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="920"/>
+            <point key="canvasLocation" x="138.38028169014083" y="918.75"/>
         </scene>
     </scenes>
     <resources>

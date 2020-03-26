@@ -9,22 +9,144 @@
 import UIKit
 
 class LandscapeViewController: UIViewController {
+    
+    
+    
+    var searchResults = [SearchResult]()
+    private var firstTime = true
+    
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.removeConstraints(view.constraints)
+        view.translatesAutoresizingMaskIntoConstraints = true
+        
+        pageControl.removeConstraints(pageControl.constraints)
+        pageControl.translatesAutoresizingMaskIntoConstraints = true
+        pageControl.numberOfPages = 0
+        
+        scrollView.removeConstraints(scrollView.constraints)
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+        
+        
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let safeFrame = view.safeAreaLayoutGuide.layoutFrame
+        scrollView.frame = safeFrame
+        pageControl.frame = CGRect(x: safeFrame.origin.x, y: safeFrame.size.height - pageControl.frame.size.height, width: safeFrame.size.width, height: pageControl.frame.size.height)
+        
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+        
+        if firstTime {
+            firstTime = false
+            tileButtons(searchResults)
+        }
+        
+    }
+    
+//MARK:-Actions
+    
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseIn] , animations: {
+            self.scrollView.contentOffset  = CGPoint(x: self.scrollView.bounds.size.width * CGFloat(sender.currentPage), y: 0)}, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//MARK:- Private Methods
+    
+    
+    
+    private func tileButtons(_ searchResults: [SearchResult]) {
+        var columnsPerPage = 6
+        var rowPerPage = 3
+        var itemWidth: CGFloat = 94
+        var itemHeight: CGFloat = 88
+        var marginX: CGFloat = 2
+        var marginY: CGFloat = 20
+        
+        let viewWidth = scrollView.bounds.size.width
+        
+        switch viewWidth {
+        case 568:
+            break
+        case 667:
+             columnsPerPage = 6
+             itemWidth = 95
+             itemHeight = 98
+             marginX = 1
+             marginY = 29
+        case 736:
+            columnsPerPage = 8
+            rowPerPage = 4
+            itemHeight = 92
+            marginX = 0
+        case 724:
+            columnsPerPage = 8
+            rowPerPage = 3
+            itemWidth = 90
+            itemHeight = 98
+            marginX = 2
+            marginY = 29
+        default:
+            break
+        }
+        let buttonWidth: CGFloat = 82
+        let buttonHeight: CGFloat = 82
+        let paddingHorz = (itemWidth - buttonWidth)/2
+        let paddingVert = (itemHeight - buttonHeight)/2
+        
+        
+//        add buttons
+        var row = 0
+        var column = 0
+        var x = marginX
+        for (index, result) in searchResults.enumerated() {
+            // Create button
+            let button = UIButton(type: .system)
+            button.backgroundColor = UIColor.white
+            button.setTitle("\(index)", for: .normal)
+            // Set button frame
+            button.frame = CGRect(x: x + paddingHorz, y: marginY + CGFloat(row)*itemHeight + paddingVert, width: buttonWidth, height: buttonHeight)
+            // Add button
+            scrollView.addSubview(button)
+            // Calculate next button position
+            row += 1
+            if row == rowPerPage {
+                row = 0; x += itemWidth; column += 1
+                
+                if column == columnsPerPage {
+                    column = 0; x += marginX * 2
+                }
+            }
+        }
+//        scroll view content size
+        let buttonPerPage = columnsPerPage * rowPerPage
+        let numPages = 1 + (searchResults.count - 1) / buttonPerPage
+        scrollView.contentSize = CGSize(width: CGFloat(numPages) * viewWidth, height: scrollView.bounds.size.height)
+        
+        print("Number of pages: \(numPages)")
+        
+        pageControl.numberOfPages = numPages
+        pageControl.currentPage = 0
     }
-    */
 
 }
+extension LandscapeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.bounds.size.width
+        let page = Int((scrollView.contentOffset.x + width / 2) / width)
+        pageControl.currentPage = page
+    }
+    
+    
+    
+    
+    
+    
+}
+
