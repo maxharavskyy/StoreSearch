@@ -13,6 +13,7 @@
 		662C359D242A4DC40063D097 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C359C242A4DC40063D097 /* LandscapeViewController.swift */; };
 		664A2C83242BA354004304E1 /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664A2C82242BA354004304E1 /* FadeOutAnimationController.swift */; };
 		664B64B5240D6A8C00EC90F0 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 664B64B4240D6A8C00EC90F0 /* LoadingCell.xib */; };
+		664E53FE242E28B100E2CFAD /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664E53FD242E28B100E2CFAD /* Search.swift */; };
 		66B121DB23E87CA700DCF76D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B121DA23E87CA700DCF76D /* AppDelegate.swift */; };
 		66B121DD23E87CA700DCF76D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B121DC23E87CA700DCF76D /* SceneDelegate.swift */; };
 		66B121DF23E87CA700DCF76D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B121DE23E87CA700DCF76D /* SearchViewController.swift */; };
@@ -34,6 +35,7 @@
 		662C359C242A4DC40063D097 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		664A2C82242BA354004304E1 /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		664B64B4240D6A8C00EC90F0 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		664E53FD242E28B100E2CFAD /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		66B121D723E87CA700DCF76D /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B121DA23E87CA700DCF76D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B121DC23E87CA700DCF76D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				66D246FC241A9BDC00E2F5FC /* DetailViewController.swift */,
 				664A2C82242BA354004304E1 /* FadeOutAnimationController.swift */,
 				662C359C242A4DC40063D097 /* LandscapeViewController.swift */,
+				664E53FD242E28B100E2CFAD /* Search.swift */,
 				662C3598242931080063D097 /* BounceAnimationController.swift */,
 				66B121F023EB2A2B00DCF76D /* SearchResultCell.xib */,
 				66B121EE23E9C48B00DCF76D /* SearchResult.swift */,
@@ -189,6 +192,7 @@
 				66D246FD241A9BDC00E2F5FC /* DetailViewController.swift in Sources */,
 				662C359D242A4DC40063D097 /* LandscapeViewController.swift in Sources */,
 				662C35972423F10C0063D097 /* GradientView.swift in Sources */,
+				664E53FE242E28B100E2CFAD /* Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
