@@ -220,7 +220,7 @@ private func downloadImage(for searchResult: SearchResult, andPlaceOn button: UI
     
     private func showNothingFoundlabel() {
         let label = UILabel(frame: CGRect.zero)
-        label.text = "Nothing Found"
+        label.text = NSLocalizedString("Nothing Found", comment: "Nothing found label text")
         label.textColor = UIColor.white
         label.backgroundColor = UIColor.clear
         
