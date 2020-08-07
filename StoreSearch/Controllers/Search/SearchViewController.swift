@@ -12,7 +12,6 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private let search = Search()
@@ -21,10 +20,6 @@ class SearchViewController: UIViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         performSearch()
     }
-    
-    
-    
-    
     
     struct  TableView  {
         struct CellIdentifiers {
@@ -35,10 +30,8 @@ class SearchViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-//        searchBar.autoresizingMask = [.flexibleTopMargin, .flexibleHeight]
-
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0)
+       // tableView.contentInset = UIEdgeInsets(top: 108, left: 0, bottom: 0, right: 0)
         var cellNib = UINib(nibName: TableView.CellIdentifiers.searchResultCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.searchResultCell)
         
@@ -48,6 +41,7 @@ class SearchViewController: UIViewController {
         cellNib = UINib(nibName: TableView.CellIdentifiers.loadingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
         tableView.rowHeight = 80
+        
         searchBar.becomeFirstResponder()
         
     }
@@ -62,6 +56,8 @@ class SearchViewController: UIViewController {
             showLandscape(with: coordinator)
         case .regular, .unspecified:
             hideLandscape(with: coordinator)
+        @unknown default:
+            break
         }
     }
     
@@ -119,6 +115,7 @@ class SearchViewController: UIViewController {
             }, completion: {_ in controller.didMove(toParent: self)})
         }
     }
+    
     func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
         if let controller = landscapeVC {
             controller.willMove(toParent: nil)
@@ -131,8 +128,6 @@ class SearchViewController: UIViewController {
                 controller.removeFromParent()
                 self.landscapeVC = nil
             })
-            
-            
         }
     }
 }

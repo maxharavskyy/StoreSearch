@@ -72,6 +72,108 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		662E403724DC319800C70C0B /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				66B121DA23E87CA700DCF76D /* AppDelegate.swift */,
+				66B121DC23E87CA700DCF76D /* SceneDelegate.swift */,
+				6649B8292430FDEE008A017E /* InfoPlist.strings */,
+				66B121E023E87CA700DCF76D /* Main.storyboard */,
+				66B121E323E87CA800DCF76D /* Assets.xcassets */,
+				6649B8232430C796008A017E /* Localizable.strings */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		662E403824DC323C00C70C0B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				66B121DE23E87CA700DCF76D /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		662E403924DC324B00C70C0B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				66D246FC241A9BDC00E2F5FC /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		662E403A24DC325700C70C0B /* Landscape */ = {
+			isa = PBXGroup;
+			children = (
+				662C359C242A4DC40063D097 /* LandscapeViewController.swift */,
+			);
+			path = Landscape;
+			sourceTree = "<group>";
+		};
+		662E403B24DC327400C70C0B /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				664A2C82242BA354004304E1 /* FadeOutAnimationController.swift */,
+				662C3598242931080063D097 /* BounceAnimationController.swift */,
+				66D246FE241AAE2D00E2F5FC /* DimmingPresentationController.swift */,
+				662C359A242939710063D097 /* SlideOutAnimationController.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		662E403C24DC329B00C70C0B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				66C45A3E241915CF006D5ACC /* UIImageView+DownloadImage.swift */,
+				662C35962423F10C0063D097 /* GradientView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6689C85024DAE36100728DB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66B121EE23E9C48B00DCF76D /* SearchResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6689C85124DAE39200728DB9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				662E403824DC323C00C70C0B /* Search */,
+				662E403924DC324B00C70C0B /* Detail */,
+				662E403A24DC325700C70C0B /* Landscape */,
+				662E403B24DC327400C70C0B /* Animation */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6689C85224DAE3A800728DB9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				664E53FD242E28B100E2CFAD /* Search.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6689C85324DAE3C300728DB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66B121F223EB43DF00DCF76D /* SearchResultCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6689C85424DAE42500728DB9 /* xib files */ = {
+			isa = PBXGroup;
+			children = (
+				6649B816242F9D6A008A017E /* NothingFoundCell.xib */,
+				6649B81A242FA2ED008A017E /* LoadingCell.xib */,
+				66B121F023EB2A2B00DCF76D /* SearchResultCell.xib */,
+			);
+			path = "xib files";
+			sourceTree = "<group>";
+		};
 		66B121CE23E87CA700DCF76D = {
 			isa = PBXGroup;
 			children = (
@@ -91,28 +193,14 @@
 		66B121D923E87CA700DCF76D /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
-				66B121DA23E87CA700DCF76D /* AppDelegate.swift */,
-				66B121DC23E87CA700DCF76D /* SceneDelegate.swift */,
-				66B121DE23E87CA700DCF76D /* SearchViewController.swift */,
-				66C45A3E241915CF006D5ACC /* UIImageView+DownloadImage.swift */,
-				6649B81A242FA2ED008A017E /* LoadingCell.xib */,
-				6649B816242F9D6A008A017E /* NothingFoundCell.xib */,
-				66B121F223EB43DF00DCF76D /* SearchResultCell.swift */,
-				66D246FC241A9BDC00E2F5FC /* DetailViewController.swift */,
-				664A2C82242BA354004304E1 /* FadeOutAnimationController.swift */,
-				662C359C242A4DC40063D097 /* LandscapeViewController.swift */,
-				664E53FD242E28B100E2CFAD /* Search.swift */,
-				662C3598242931080063D097 /* BounceAnimationController.swift */,
-				66B121F023EB2A2B00DCF76D /* SearchResultCell.xib */,
-				66B121EE23E9C48B00DCF76D /* SearchResult.swift */,
-				6649B8292430FDEE008A017E /* InfoPlist.strings */,
-				66B121E023E87CA700DCF76D /* Main.storyboard */,
-				662C35962423F10C0063D097 /* GradientView.swift */,
-				66D246FE241AAE2D00E2F5FC /* DimmingPresentationController.swift */,
-				662C359A242939710063D097 /* SlideOutAnimationController.swift */,
-				66B121E323E87CA800DCF76D /* Assets.xcassets */,
+				662E403C24DC329B00C70C0B /* Helpers */,
+				6689C85324DAE3C300728DB9 /* View */,
+				6689C85224DAE3A800728DB9 /* Service */,
+				6689C85124DAE39200728DB9 /* Controllers */,
+				6689C85024DAE36100728DB9 /* Model */,
+				6689C85424DAE42500728DB9 /* xib files */,
+				662E403724DC319800C70C0B /* Supporting files */,
 				66B121E823E87CA800DCF76D /* Info.plist */,
-				6649B8232430C796008A017E /* Localizable.strings */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -390,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maxharavskyy.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -407,7 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = maxharavskyy.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

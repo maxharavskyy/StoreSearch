@@ -25,8 +25,6 @@ private let typeForKind = [
     "song": NSLocalizedString("Song", comment: "Localized kind: Song"),
     "tv-episode": NSLocalizedString("TV Episode", comment: "Localized kind: TV Episode")]
 
-
-
 class SearchResult: Codable, CustomStringConvertible {
     var kind: String? = ""
     var trackName: String? = ""
@@ -46,15 +44,19 @@ class SearchResult: Codable, CustomStringConvertible {
     var description: String {
         return "Kind: \(kind ?? "None"), Name: \(name), Artist Name: \(artistName)\n"
     }
+    
     var name: String {
         return trackName ?? collectionName ?? ""
     }
+    
     var storeUrl: String {
         return trackViewUrl ?? collectionViewUrl ?? ""
     }
+    
     var price: Double {
         return trackPrice ?? collectionPrice ?? itemPrice ?? 0.0
     }
+    
     var genre: String {
         if let genre = itemGenre {
             return genre
@@ -63,12 +65,11 @@ class SearchResult: Codable, CustomStringConvertible {
         }
         return ""
     }
+    
     var type: String {
         let kind = self.kind ?? "audiobook"
        return typeForKind[kind] ?? kind
     }
-    
-    
     
     enum CodingKeys: String, CodingKey {
         case imageSmall = "artworkUrl60"

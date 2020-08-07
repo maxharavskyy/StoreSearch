@@ -21,7 +21,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceButton: UIButton!
     @IBOutlet weak var artistNameLabel: UILabel!
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         modalPresentationStyle = .custom
@@ -41,10 +40,7 @@ class DetailViewController: UIViewController {
         if searchResult != nil {
             updateUI()
         }
-        
         view.backgroundColor = UIColor.clear
-
-        // Do any additional setup after loading the view.
     }
     
     enum AnimationStyle {

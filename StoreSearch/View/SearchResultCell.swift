@@ -16,7 +16,6 @@ class SearchResultCell: UITableViewCell {
     
     var downloadTask: URLSessionDownloadTask?
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         let selectedView = UIView(frame: CGRect.zero)
@@ -26,13 +25,12 @@ class SearchResultCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     //MARK:- Public Methods
+    
     func configure(for result: SearchResult) {
         nameLabel.text = result.name
-        
         if result.artistName.isEmpty {
             artistNameLabel.text = NSLocalizedString("Unknown", comment: "Artist name label")
         } else {
